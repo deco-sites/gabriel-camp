@@ -4,6 +4,7 @@
 
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
+import * as $$$$$$$$$$$2 from "./apps/weather/loaders/temperature.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
 import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
@@ -97,8 +98,10 @@ const manifest = {
     "deco-sites/gabriel-camp/sections/Images/ShoppableBanner.tsx": $$$$$$28,
     "deco-sites/gabriel-camp/sections/Links/LinkTree.tsx": $$$$$$29,
     "deco-sites/gabriel-camp/sections/Links/Shortcuts.tsx": $$$$$$30,
-    "deco-sites/gabriel-camp/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$31,
-    "deco-sites/gabriel-camp/sections/Miscellaneous/CookieConsent.tsx": $$$$$$32,
+    "deco-sites/gabriel-camp/sections/Miscellaneous/CampaignTimer.tsx":
+      $$$$$$31,
+    "deco-sites/gabriel-camp/sections/Miscellaneous/CookieConsent.tsx":
+      $$$$$$32,
     "deco-sites/gabriel-camp/sections/Miscellaneous/Slide.tsx": $$$$$$33,
     "deco-sites/gabriel-camp/sections/Newsletter/Newsletter.tsx": $$$$$$34,
     "deco-sites/gabriel-camp/sections/Product/ImageGalleryFrontBack.tsx":
@@ -118,6 +121,7 @@ const manifest = {
   "apps": {
     "deco-sites/gabriel-camp/apps/decohub.ts": $$$$$$$$$$$0,
     "deco-sites/gabriel-camp/apps/site.ts": $$$$$$$$$$$1,
+    "deco-sites/gabriel-camp/apps/weather/loaders/temperature.ts": $$$$$$$$$$$2,
   },
   "name": "deco-sites/gabriel-camp",
   "baseUrl": import.meta.url,
