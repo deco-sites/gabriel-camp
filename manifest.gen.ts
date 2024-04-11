@@ -56,6 +56,7 @@ import * as $$$$$$43 from "./sections/Product/Wishlist.tsx";
 import * as $$$$$$44 from "./sections/Social/InstagramPosts.tsx";
 import * as $$$$$$45 from "./sections/Social/WhatsApp.tsx";
 import * as $$$$$$46 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$47 from "./sections/Weather/Widget.tsx";
 
 const manifest = {
   "loaders": {
@@ -117,6 +118,7 @@ const manifest = {
     "deco-sites/gabriel-camp/sections/Social/InstagramPosts.tsx": $$$$$$44,
     "deco-sites/gabriel-camp/sections/Social/WhatsApp.tsx": $$$$$$45,
     "deco-sites/gabriel-camp/sections/Theme/Theme.tsx": $$$$$$46,
+    "deco-sites/gabriel-camp/sections/Weather/Widget.tsx": $$$$$$47,
   },
   "apps": {
     "deco-sites/gabriel-camp/apps/decohub.ts": $$$$$$$$$$$0,
