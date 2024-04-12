@@ -7,7 +7,7 @@ export interface Props {
 export default function Widget({ temperature }: Props) {
   return (
     <div>
-      {temperature} °C
+      {temperature?.celsius} °C
     </div>
   );
 }
