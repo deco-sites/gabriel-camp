@@ -1,13 +1,14 @@
-import { Temperature } from "deco-sites/gabriel-camp/apps/weather/loaders/temperature.ts";
+import { Temperature } from "apps/weather/loaders/temperature.ts";
 
 export interface Props {
   temperature: Temperature | null;
+  location: string;
 }
 
-export default function Widget({ temperature }: Props) {
+export default function Widget({ temperature, location }: Props) {
   return (
     <div>
-      {temperature?.celsius} °C
+      {location}, {temperature?.celsius} °C
     </div>
   );
 }
