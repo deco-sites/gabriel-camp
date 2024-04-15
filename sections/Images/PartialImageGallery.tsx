@@ -1,7 +1,7 @@
 import { ImageWidget } from "apps/admin/widgets.ts"
 import Icon, { AvailableIcons } from "deco-sites/gabriel-camp/components/ui/Icon.tsx"
-import { PartialGallery } from "deco-sites/gabriel-camp/components/PartialGallery/index.tsx";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
+import Image from "apps/website/components/Image.tsx";
 
 interface Image {
     src: ImageWidget
@@ -21,16 +21,23 @@ export interface Props {
     }
 }
 
-// function createArrayPages(sourceArray: Image[]) {
-//     const subArrays = []
-//     const fullArray = sourceArray
-
-//     do {
-//         subArrays.push(fullArray.splice(0, 3))
-//     } while (fullArray.length > 0)
-
-//     return subArrays
-// }
+export function ErrorFallback({ error }: { error?: Error }) {
+    return (
+        <PartialImageGallery
+            title="My partial image gallery"
+            images={[
+                { src: "https://placehold.co/334x200?", alt: "my placehold image" },
+                { src: "https://placehold.co/334x200?", alt: "my placehold image" },
+                { src: "https://placehold.co/334x200?", alt: "my placehold image" },
+            ]}
+            page={1}
+            showMoreButton={{
+                icon: "Plus-circle",
+                text: ""
+            }}
+        />
+    )
+}
 
 export default function PartialImageGallery({
     title,
@@ -38,26 +45,35 @@ export default function PartialImageGallery({
     showMoreButton,
     page = 1
 }: Props) {
-    // const paginatedArray = createArrayPages(images)
-    const shownImages = images.splice(0, page*3)
+    const shownImages = images.slice(0, page * 3)
+
+    if (images.length < 3) {
+        throw new Error("Not enough elements");
+    }
 
     return (
-        <section class="p-4">
+        <section class="p-4 mx-auto flex flex-col gap-4 max-w-screen-xl items-center">
             {title && (
-                <h2 class="text-xl text-gray-600 border-b mb-4">{title}</h2>
+                <h2 class="text-xl text-gray-600 border-b mb-4 w-full">{title}</h2>
             )}
 
             <ul class="flex flex-wrap gap-2 mb-2">
-                <PartialGallery images={shownImages} />
+                {shownImages.map((pageImages: Image) => (
+                    <li class="w-full md:max-w-80">
+                        <Image class="w-full h-auto rounded-md" width={334} height={200} src={pageImages.src} alt={pageImages.alt} />
+                    </li>
+                ))}
             </ul>
 
-            <button
-                class="flex gap-1 py-2 justify-center w-full bg-slate-100 rounded-md text-gray-500"
-                {...usePartialSection({props: { page: page + 1 }})}
-            >
-                {showMoreButton.text && <span>{showMoreButton.text}</span>}
-                {showMoreButton.icon && <span>{<Icon id={showMoreButton.icon || "Plus"} size={20} />}</span>}
-            </button>
+            {Math.ceil(images.length / 3) > page && (
+                <button
+                    class="flex gap-1 py-2 justify-center w-full md:w-96 bg-slate-100 rounded-md text-gray-500"
+                    {...usePartialSection({ props: { page: page + 1 } })}
+                >
+                    {showMoreButton.text && <span>{showMoreButton.text}</span>}
+                    {showMoreButton.icon && <span>{<Icon id={showMoreButton.icon || "Plus"} size={20} />}</span>}
+                </button>
+            )}
         </section>
     )
 }
