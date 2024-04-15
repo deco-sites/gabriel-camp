@@ -60,7 +60,7 @@ export default function PartialImageGallery({
             <ul class="flex flex-wrap gap-2 mb-2">
                 {shownImages.map((pageImages: Image) => (
                     <li class="w-full md:max-w-80">
-                        <Image class="w-full h-auto rounded-md hover:scale-125 transition-all hover:shadow-md" width={334} height={200} src={pageImages.src} alt={pageImages.alt} />
+                        <Image class="w-full h-auto rounded-md hover:scale-125 transition-all hover:shadow-md cursor-pointer object-cover" width={334} height={200} src={pageImages.src} alt={pageImages.alt} />
                     </li>
                 ))}
             </ul>
