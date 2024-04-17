@@ -1,6 +1,10 @@
 import Image from "apps/website/components/Image.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import { formatPrice } from "deco-sites/gabriel-camp/sdk/format.ts";
+import ProductLike from "deco-sites/gabriel-camp/islands/ProductLike/index.tsx";
+import { ProductVotesApiResponse } from "deco-sites/gabriel-camp/loaders/productLikes.ts";
+import likeProduct from "deco-sites/gabriel-camp/actions/likeProduct.ts";
+import { invoke } from "deco-sites/gabriel-camp/runtime.ts";
 
 interface ButtonProps {
     text?: string;
@@ -15,6 +19,8 @@ export interface Props {
     description: string;
     addToCartButton: ButtonProps;
     wishlistButton: ButtonProps;
+    productVotes: ProductVotesApiResponse | undefined;
+    productId: string
     image: {
         src: ImageWidget;
         alt?: string;
@@ -132,8 +138,12 @@ export default function ProductCard({
     addToCartButton,
     wishlistButton,
     maxScreenSize,
-    animateImage
+    animateImage,
+    productVotes,
+    productId
 }: Props) {
+    console.log(productVotes);
+
     return (
         <section
             class="w-full py-1 mb-16"
@@ -160,6 +170,8 @@ export default function ProductCard({
                     </div>
 
                     <p class="flex-1 align-bottom text-sm overflow-ellipsis">{description}</p>
+
+                    <ProductLike votesCount={productVotes} sendLike={invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })} />
                 </div>
 
                 <div class="flex flex-col gap-1 justify-between border-l border-slate-200 pl-2 md:w-40">

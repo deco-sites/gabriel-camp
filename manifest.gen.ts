@@ -2,12 +2,14 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $$$$$$$$$0 from "./actions/likeProduct.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
 import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
+import * as $$$4 from "./loaders/productLikes.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarouselWithImage.tsx";
@@ -65,6 +67,7 @@ const manifest = {
     "deco-sites/gabriel-camp/loaders/icons.ts": $$$3,
     "deco-sites/gabriel-camp/loaders/Layouts/ProductCard.tsx": $$$0,
     "deco-sites/gabriel-camp/loaders/List/Sections.tsx": $$$1,
+    "deco-sites/gabriel-camp/loaders/productLikes.ts": $$$4,
   },
   "sections": {
     "deco-sites/gabriel-camp/sections/Animation/Animation.tsx": $$$$$$0,
@@ -122,6 +125,9 @@ const manifest = {
     "deco-sites/gabriel-camp/sections/Social/WhatsApp.tsx": $$$$$$47,
     "deco-sites/gabriel-camp/sections/Theme/Theme.tsx": $$$$$$48,
     "deco-sites/gabriel-camp/sections/Weather/Widget.tsx": $$$$$$49,
+  },
+  "actions": {
+    "deco-sites/gabriel-camp/actions/likeProduct.ts": $$$$$$$$$0,
   },
   "apps": {
     "deco-sites/gabriel-camp/apps/decohub.ts": $$$$$$$$$$$0,
