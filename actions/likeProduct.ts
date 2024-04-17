@@ -2,17 +2,14 @@ export interface Props {
     productId: string
 }
 
-export interface Result {
-    status: "ok" | "failure"
-}
-
-export default async function likeProduct(props: Props): Promise<Result> {
+export default async function likeProduct({ productId }: Props) {
     const response = await fetch("https://camp-api.deco.cx/event", {
         method: "POST",
-        body: JSON.stringify(props)
+        headers: {
+            "x-api-key": "gabriel-camp"
+        },
+        body: JSON.stringify({ "productId": productId })
     })
 
     console.log(`Request sent: ${response.json()}`)
-
-    return response.json()
 }

@@ -1,22 +1,20 @@
 import Icon from "deco-sites/gabriel-camp/components/ui/Icon.tsx";
 import { alreadyLiked } from '../../sdk/useVotes.tsx'
 import { ProductVotesApiResponse } from "deco-sites/gabriel-camp/loaders/productLikes.ts";
-import { Result } from "deco-sites/gabriel-camp/actions/likeProduct.ts";
+import { invoke } from "deco-sites/gabriel-camp/runtime.ts";
 
 interface ProductLikeProps {
     votesCount: ProductVotesApiResponse | undefined
-    sendLike?: Promise<Result>
+    productId: string
 }
 
 export function ErrorFallback({ error }: { error?: Error }) {
     console.log({error})
 
-    return <ProductLike votesCount={{ product: 13 }} />
+    return <ProductLike productId={''} votesCount={{ product: 13 }} />
 }
 
-function ProductLike({ votesCount }: ProductLikeProps) {
-    console.log(`ProductLike in island: ${votesCount}`)
-
+function ProductLike({ votesCount, productId }: ProductLikeProps) {
     return (
         <div class="flex gap-3 items-center">
             <button
@@ -27,6 +25,11 @@ function ProductLike({ votesCount }: ProductLikeProps) {
                         : "text-slate-400 hover:text-slate-500"
                     }
                     transition-all`}
+                onClick={() => {
+                    console.log('Like button clicked')
+
+                    invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })
+                }}
             >
                 <Icon id={alreadyLiked.value ? "IconMoodCheck" : "IconMoodSmile"} size={24} />
             </button>

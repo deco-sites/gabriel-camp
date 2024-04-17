@@ -171,7 +171,7 @@ export default function ProductCard({
 
                     <p class="flex-1 align-bottom text-sm overflow-ellipsis">{description}</p>
 
-                    <ProductLike votesCount={productVotes} sendLike={invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })} />
+                    <ProductLike votesCount={productVotes} productId={productId} />
                 </div>
 
                 <div class="flex flex-col gap-1 justify-between border-l border-slate-200 pl-2 md:w-40">
