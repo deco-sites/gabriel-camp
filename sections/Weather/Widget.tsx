@@ -5,6 +5,12 @@ export interface Props {
     location: string;
 }
 
+export function ErrorFallback({ error }: { error?: Error }) {
+    console.log({error})
+
+    return <div>Manaus, 200 °C</div>
+}
+
 export default function Widget({ temperature, location }: Props) {
     return (
         <div>

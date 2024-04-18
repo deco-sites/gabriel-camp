@@ -4,7 +4,6 @@ import { formatPrice } from "deco-sites/gabriel-camp/sdk/format.ts";
 import ProductLike from "deco-sites/gabriel-camp/islands/ProductLike/index.tsx";
 import { ProductVotesApiResponse } from "deco-sites/gabriel-camp/loaders/productLikes.ts";
 import likeProduct from "deco-sites/gabriel-camp/actions/likeProduct.ts";
-import { invoke } from "deco-sites/gabriel-camp/runtime.ts";
 
 interface ButtonProps {
     text?: string;
@@ -142,8 +141,6 @@ export default function ProductCard({
     productVotes,
     productId
 }: Props) {
-    console.log(productVotes);
-
     return (
         <section
             class="w-full py-1 mb-16"

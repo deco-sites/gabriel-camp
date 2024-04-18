@@ -9,9 +9,11 @@ interface ProductLikeProps {
 }
 
 export function ErrorFallback({ error }: { error?: Error }) {
-    console.log({error})
+    return <ProductLike productId={''} votesCount={{ product: 0 }} />
+}
 
-    return <ProductLike productId={''} votesCount={{ product: 13 }} />
+async function handleLike() {
+    await invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })
 }
 
 function ProductLike({ votesCount, productId }: ProductLikeProps) {
@@ -25,7 +27,7 @@ function ProductLike({ votesCount, productId }: ProductLikeProps) {
                         : "text-slate-400 hover:text-slate-500"
                     }
                     transition-all`}
-                onClick={() => invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })}
+                onClick={() => handleLike()}
             >
                 <Icon id={alreadyLiked.value ? "IconMoodCheck" : "IconMoodSmile"} size={24} />
             </button>
