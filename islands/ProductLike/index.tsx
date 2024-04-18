@@ -25,11 +25,7 @@ function ProductLike({ votesCount, productId }: ProductLikeProps) {
                         : "text-slate-400 hover:text-slate-500"
                     }
                     transition-all`}
-                onClick={() => {
-                    console.log('Like button clicked')
-
-                    invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })
-                }}
+                onClick={() => invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })}
             >
                 <Icon id={alreadyLiked.value ? "IconMoodCheck" : "IconMoodSmile"} size={24} />
             </button>
