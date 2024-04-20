@@ -16,8 +16,6 @@ export default async function likeProduct({ productId }: Props): Promise<Result>
         body: JSON.stringify({ "productId": productId })
     })
 
-    console.log(`Request sent: ${response.json()}`)
-
     if (response.ok) {
         return { status: "ok"}
     }
