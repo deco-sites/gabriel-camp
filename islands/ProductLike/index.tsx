@@ -9,14 +9,34 @@ interface ProductLikeProps {
 }
 
 export function ErrorFallback({ error }: { error?: Error }) {
+    console.log({
+        ErrorFallback: error
+    })
+
     return <ProductLike productId={''} votesCount={{ product: 0 }} />
 }
 
-async function handleLike() {
-    await invoke["deco-sites/gabriel-camp"].actions.likeProduct({ productId })
-}
+const actionLikeProduct = invoke["deco-sites/gabriel-camp"].actions.likeProduct
 
 function ProductLike({ votesCount, productId }: ProductLikeProps) {
+    async function handleLike() {
+        const actionResponse = await actionLikeProduct({
+            productId
+        })
+
+        if (actionResponse) {
+            console.log({
+                actionResponse: "Success"
+            })
+
+            return
+        }
+
+        console.log({
+            actionResponse: "Action error"
+        })
+    }
+
     return (
         <div class="flex gap-3 items-center">
             <button
