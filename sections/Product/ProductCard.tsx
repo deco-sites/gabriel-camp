@@ -31,7 +31,7 @@ export function LoadingFallback() {
             id="ProductCard"
             class="w-full container py-8 flex flex-col gap-6 pb-16"
         >
-            <h1>...</h1>
+            <h1>Loading card...</h1>
         </section>
     );
 }
