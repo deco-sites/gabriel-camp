@@ -5,13 +5,22 @@ import Image from "apps/website/components/Image.tsx";
 interface Props {
     products?: Product[] | null;
     imageAnimate?: boolean;
+    maxSize:
+        "max-w-xl" |
+        "max-w-2xl" |
+        "max-w-3xl" |
+        "max-w-4xl" |
+        "max-w-5xl" |
+        "max-w-6xl" |
+        "max-w-7xl" |
+        "max-w-full";
 }
 
 export function ErrorFallback({ error }: { error?: Error }) {
     console.log({error})
 
     return (
-        <div class="container bg-primary text-center items-center md:flex md:flex-row rounded p-5 mt-3 xl:max-w-5xl">
+        <div class={`container bg-primary text-center items-center md:flex md:flex-row rounded p-5 mt-3 xl:max-w-2xl`}>
             <Image
                 src="https://placehold.co/246x164"
                 width={246}
@@ -46,12 +55,13 @@ export function LoadingFallback() {
 export default function SectionHorizontalCard({
     products,
     imageAnimate = true,
+    maxSize
 }: Props) {
     if (!products) return null;
 
     return (
         <div
-            class={`flex flex-col container bg-primary text-center rounded p-5 mt-3 md:flex-row xl:max-w-6xl`}
+            class={`flex flex-col container bg-primary text-center rounded p-5 mt-3 md:flex-row xl:${maxSize}`}
             data-deco="view-product"
         >
             {products.map((product) => (
