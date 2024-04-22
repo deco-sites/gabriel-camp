@@ -3,14 +3,10 @@ import type { ImageWidget } from "apps/admin/widgets.ts";
 import { formatPrice } from "deco-sites/gabriel-camp/sdk/format.ts";
 import ProductLike from "deco-sites/gabriel-camp/islands/ProductLike/index.tsx";
 import { ProductVotesApiResponse } from "deco-sites/gabriel-camp/loaders/productLikes.ts";
-import { ProductListingPage } from "apps/commerce/types.ts";
+import { Product, ProductListingPage } from "apps/commerce/types.ts";
+import AddToCartButton from "deco-sites/gabriel-camp/components/product/AddToCartButton/vtex.tsx";
 
-interface ButtonProps {
-    text?: string;
-}
 export interface Props {
-    addToCartButton: ButtonProps;
-    wishlistButton: ButtonProps;
     productVotes: ProductVotesApiResponse | undefined;
     maxScreenSize:
         "max-w-xl" |
@@ -22,7 +18,8 @@ export interface Props {
         "max-w-7xl" |
         "max-w-full";
     animateImage: boolean;
-    productDetails: ProductListingPage | null;
+    productDetails: Product | null;
+    // productDetails: ProductListingPage | null;
     productSearchPosition: number;
 }
 
@@ -48,8 +45,6 @@ export function ErrorFallback({ error }: { error?: Error }) {
 }
 
 export default function ProductCard({
-    addToCartButton,
-    wishlistButton,
     maxScreenSize,
     animateImage,
     productVotes,
@@ -57,10 +52,13 @@ export default function ProductCard({
     productSearchPosition = 0
 }: Props) {
     if (!productDetails) {
+        console.log(productDetails)
         return <ErrorFallback />
     }
 
     const { productID, name, image, offers, description } = productDetails.products[productSearchPosition]
+
+    console.log(productDetails)
 
     const productImg = image ? image[0] : {
         url: 'https://placehold.co/205x137?',
@@ -101,10 +99,10 @@ export default function ProductCard({
 
                     <div class="flex flex-col gap-2">
                         <button class="bg-emerald-400 text-white text-xs md:text-base font-bold border border-emerald-400 w-full py-2 rounded-md">
-                            {addToCartButton.text ?? "Comprar"}
+                            Comprar
                         </button>
                         <button class="text-emerald-400 text-xs md:text-base font-bold border border-emerald-400 w-full py-2 rounded-md">
-                            {wishlistButton.text ?? "Favoritar"}
+                            Favoritar
                         </button>
                     </div>
                 </div>
