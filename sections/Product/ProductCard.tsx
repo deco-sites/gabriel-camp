@@ -23,6 +23,7 @@ export interface Props {
         "max-w-full";
     animateImage: boolean;
     productDetails: ProductListingPage | null;
+    productSearchPosition: number;
 }
 
 export function LoadingFallback() {
@@ -52,13 +53,14 @@ export default function ProductCard({
     maxScreenSize,
     animateImage,
     productVotes,
-    productDetails
+    productDetails,
+    productSearchPosition = 0
 }: Props) {
     if (!productDetails) {
         return <ErrorFallback />
     }
 
-    const { productID, name, image, offers, description } = productDetails.products[0]
+    const { productID, name, image, offers, description } = productDetails.products[productSearchPosition]
 
     const productImg = image ? image[0] : {
         url: 'https://placehold.co/205x137?',

@@ -10,6 +10,7 @@ import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
 import * as $$$4 from "./loaders/productLikes.ts";
+import * as $$$$$$$0 from "./matchers/utm.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarouselWithImage.tsx";
@@ -125,6 +126,9 @@ const manifest = {
     "deco-sites/gabriel-camp/sections/Social/WhatsApp.tsx": $$$$$$47,
     "deco-sites/gabriel-camp/sections/Theme/Theme.tsx": $$$$$$48,
     "deco-sites/gabriel-camp/sections/Weather/Widget.tsx": $$$$$$49,
+  },
+  "matchers": {
+    "deco-sites/gabriel-camp/matchers/utm.ts": $$$$$$$0,
   },
   "actions": {
     "deco-sites/gabriel-camp/actions/likeProduct.ts": $$$$$$$$$0,
