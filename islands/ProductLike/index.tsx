@@ -2,6 +2,7 @@ import Icon from "deco-sites/gabriel-camp/components/ui/Icon.tsx";
 import { alreadyLiked } from '../../sdk/useVotes.tsx'
 import { ProductVotesApiResponse } from "deco-sites/gabriel-camp/loaders/productLikes.ts";
 import { invoke } from "deco-sites/gabriel-camp/runtime.ts";
+import { Bounce, toast } from 'react-toastify'
 
 interface ProductLikeProps {
     votesCount: ProductVotesApiResponse | undefined
@@ -29,12 +30,36 @@ function ProductLike({ votesCount, productId }: ProductLikeProps) {
                 actionResponse: "Success"
             })
 
+            toast.success("Curtido", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+
             return
         }
 
         console.log({
             actionResponse: "Action error"
         })
+
+        toast.success("Erro ao curtir produto", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        });
     }
 
     return (

@@ -1,14 +1,16 @@
 {
   "imports": {
     "deco-sites/gabriel-camp/": "./",
-    "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.60.20/",
-    "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.35.35/",
+    "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.61.4/",
+    "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.36.13/",
     "$fresh/": "https://deno.land/x/fresh@1.6.8/",
     "preact": "https://esm.sh/preact@10.19.6",
     "preact/": "https://esm.sh/preact@10.19.6/",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.2",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "react-toastify": "https://esm.sh/react-toastify@9.1.1?&external=react,react-dom&alias=react/jsx-runtime:preact/jsx-runtime&deps=preact@10.19.2&target=es2022",
+    "react": "https://esm.sh/preact@10.19.2/compat",
     "std/": "https://deno.land/std@0.190.0/",
     "partytown/": "https://cdn.jsdelivr.net/gh/deco-cx/partytown@0.4.8/",
     "daisyui": "npm:daisyui@4.6.0"
@@ -29,7 +31,9 @@
     "preview": "deno run -A main.ts",
     "generate-icons": "deno run -A --unstable static/generate-icons.ts"
   },
-  "githooks": { "pre-commit": "check" },
+  "githooks": {
+    "pre-commit": "check"
+  },
   "exclude": [
     "node_modules",
     "static/",
@@ -38,7 +42,14 @@
     "**/_fresh/*",
     ".deco"
   ],
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
   "nodeModulesDir": true,
   "compilerOptions": {
     "jsx": "react-jsx",
