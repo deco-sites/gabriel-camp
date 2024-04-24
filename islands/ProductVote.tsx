@@ -1,6 +1,7 @@
+import ToastifyStyles from 'deco-sites/gabriel-camp/components/ToastifyStyles.tsx'
 import { signal, useSignal, useSignalEffect } from "@preact/signals";
 import { invoke } from "deco-sites/gabriel-camp/runtime.ts";
-import { Bounce, toast, ToastContainer, TypeOptions } from "react-toastify";
+import { Bounce, toast, ToastContainer } from "react-toastify";
 import { sendEvent } from "deco-sites/gabriel-camp/sdk/analytics.tsx";
 import Icon from "deco-sites/gabriel-camp/components/ui/Icon.tsx";
 
@@ -13,9 +14,9 @@ export interface Props {
 export default function ProductVote({ productId }: Props) {
     const hasVoted = useSignal(false);
     const productVotes = useSignal(0);
-
     // deno-lint-ignore no-explicit-any
     const ToastContainerComponent = ToastContainer as any;
+
 
     useSignalEffect(() => {
         const getVotes = async () => {
@@ -64,7 +65,8 @@ export default function ProductVote({ productId }: Props) {
 
     return (
         <div class="flex gap-2">
-            {/* <ToastContainerComponent /> */}
+            <ToastifyStyles />
+            <ToastContainerComponent />
             <button onClick={addVote}>
                 {hasVoted.value
                     ? <Icon id="IconMoodCheck" class="text-emerald-600" width={24} height={24} />
